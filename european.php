@@ -45,6 +45,26 @@
             </tbody>
           </table>
     </div>
-    <script src="./js/app.js"></script>
+    <script>
+      var app = new Vue({
+          el: '#app',
+          data: {
+            api_root: 'ajax.php?action=european',
+            message: 'Hello Vue 123',
+            items: null
+          },
+          methods: {
+            getItems() {
+              axios.get(this.api_root)
+                .then((response) => {
+                  this.items = response.data.data
+                });
+            }
+          },
+          mounted: function () {
+            this.getItems();
+          }
+        });
+    </script>
 </body>
 </html>
