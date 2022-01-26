@@ -18,6 +18,7 @@
               <tr>
                 <th>homeName</th>
                 <th>awayName</th>
+                <th>leagueName</th>
                 <th>matchId</th>
                 <th>matchTime</th>
                 <th>status</th>
@@ -28,6 +29,7 @@
               <tr v-for="item of items">
                 <td>{{ item.homeName }}</td>
                 <td>{{ item.awayName }}</td>
+                <td>{{ item.leagueName }}</td>
                 <td>{{ item.matchId }}</td>
                 <td>{{ item.matchTime }}</td>
                 <td>{{ item.status }}</td>
@@ -38,7 +40,8 @@
           </table>
     </div>
     <?php
-    $date   = ( isset($_GET['date']) ) ? $_GET['date'] : 1639;
+    date_default_timezone_set('Asia/Ho_Chi_Minh');
+    $date   = ( isset($_GET['date']) ) ? $_GET['date'] : date('Y-m-d');
     ?>
     <script>
       var app = new Vue({
